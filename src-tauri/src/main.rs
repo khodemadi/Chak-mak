@@ -35,7 +35,7 @@ struct ApiErrorDetail {
 }
 
 fn api_base() -> String {
-    std::env::var("THEFEED_API").unwrap_or_else(|_| "http://127.0.0.1:8000".to_string())
+    std::env::var("CHAKMAK_API").unwrap_or_else(|_| "http://127.0.0.1:8000".to_string())
 }
 
 /// Called from the UI: `invoke("fetch_messages", { limit: 20 })`.

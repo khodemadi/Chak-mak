@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "The Feed",
+  "productName": "Chak Mak",
   "version": "0.1.0",
   "identifier": "app.thefeed.desktop",
   "build": {
