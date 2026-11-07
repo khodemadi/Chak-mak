@@ -1,4 +1,4 @@
-# The Feed — روز اول (نفر Rust / Tauri)
+# The Feed — روز اول (Rust / Tauri)
 
 ## ساختار
 
