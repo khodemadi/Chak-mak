@@ -1,44 +1,52 @@
-The Feed
+# چک‌مک (Chak-mak)
 
-A lightweight desktop application built with Rust, Tauri v2, and HTML/CSS/JavaScript, designed to retrieve and display feed data through a structured API contract.
+یک نرم‌افزار دسکتاپ سبک و توسعه‌پذیر با استفاده از **Rust، Tauri v2 و HTML/CSS/JavaScript** که با هدف دریافت و نمایش داده‌های فید از طریق یک API ساختاریافته توسعه داده شده است.
 
-The project follows a modular architecture that separates the desktop application, user interface, API integration, and backend communication.
+---
 
-Overview
+## معرفی پروژه
 
-The Feed provides a foundation for a desktop feed reader with a clear separation between frontend and backend components.
+چک‌مک بستری برای توسعه یک برنامه دسکتاپ با معماری ماژولار است که در آن رابط کاربری، منطق برنامه و ارتباطات API از یکدیگر تفکیک شده‌اند.
 
-Features
+### قابلیت‌ها
 
-- Desktop application powered by Rust and Tauri v2
-- HTML/CSS/JavaScript-based user interface
-- Python-based mock API for development and testing
-- Shared JSON API contract
-- API validation utilities
-- Rust-based HTTP client using "reqwest"
+- توسعه برنامه دسکتاپ با استفاده از Rust و Tauri v2
+- رابط کاربری مبتنی بر HTML، CSS و JavaScript
+- API آزمایشی مبتنی بر Python برای توسعه و تست
+- قرارداد مشترک API بر پایه JSON
+- ابزارهای اعتبارسنجی API
+- ارتباط HTTP با استفاده از کتابخانه Reqwest
+- قابلیت توسعه و اتصال به API واقعی
 
-Architecture
+---
 
-                  ┌──────────────────────┐
-                  │      API Server      │
-                  │   Mock / Real API    │
-                  └──────────┬───────────┘
-                             │
-                        HTTP / JSON
-                             │
-                  ┌──────────▼───────────┐
-                  │      Rust Backend    │
-                  │      Tauri v2        │
-                  │       reqwest        │
-                  └──────────┬───────────┘
-                             │
-                  ┌──────────▼───────────┐
-                  │     Desktop UI       │
-                  │    HTML / CSS / JS   │
-                  └──────────────────────┘
+## معماری پروژه
 
-Project Structure
+```text
+                ┌─────────────────────┐
+                │      API Server     │
+                │    Mock / Real API  │
+                └──────────┬──────────┘
+                           │
+                      HTTP / JSON
+                           │
+                ┌──────────▼──────────┐
+                │    Rust Backend    │
+                │      Tauri v2      │
+                │       Reqwest      │
+                └──────────┬──────────┘
+                           │
+                ┌──────────▼──────────┐
+                │     Desktop UI     │
+                │   HTML / CSS / JS  │
+                └────────────────────┘
+```
 
+---
+
+## ساختار پروژه
+
+```text
 Chak-mak/
 ├── docs/
 │   └── api-contract.md
@@ -46,134 +54,155 @@ Chak-mak/
 │   ├── server.py
 │   └── validate.py
 ├── src-tauri/
-│   └── Rust / Tauri application
 ├── ui/
-│   └── HTML / CSS / JavaScript interface
 ├── api-contract.md
 └── README.md
+```
 
-Tech Stack
+---
 
-Technology| Purpose
-Rust| Backend application logic
-Tauri v2| Desktop application framework
-HTML| UI structure
-CSS| UI styling
-JavaScript| Frontend interactions
-Python| Mock API server
-Flask| API development
-Reqwest| HTTP communication
-JSON| API communication format
+## فناوری‌های استفاده‌شده
 
-Requirements
+| فناوری | کاربرد |
+|---|---|
+| Rust | توسعه منطق برنامه |
+| Tauri v2 | ساخت برنامه دسکتاپ |
+| HTML | ساختار رابط کاربری |
+| CSS | طراحی رابط کاربری |
+| JavaScript | تعاملات سمت کاربر |
+| Python | توسعه API آزمایشی |
+| Flask | پیاده‌سازی API |
+| Reqwest | ارتباطات HTTP |
+| JSON | قالب تبادل داده |
 
-Before running the project, make sure the following tools are installed:
+---
 
-Requirement| Description
-Python 3| Mock API development and execution
-Rust| Backend development
-Cargo| Rust package manager
-Tauri v2 dependencies| Desktop application requirements
-Git| Version control
+## پیش‌نیازها
 
-For Tauri prerequisites, see the "official documentation" (https://v2.tauri.app/start/prerequisites/).
+| ابزار | توضیحات |
+|---|---|
+| Python 3 | اجرای API آزمایشی |
+| Rust | توسعه بخش اصلی برنامه |
+| Cargo | مدیریت وابستگی‌های Rust |
+| Tauri v2 Dependencies | وابستگی‌های موردنیاز |
+| Git | مدیریت نسخه |
 
-Getting Started
+[مستندات رسمی Tauri](https://v2.tauri.app/start/prerequisites/)
 
-1. Clone the Repository
+---
 
+## نصب و راه‌اندازی
+
+### ۱. دریافت پروژه
+
+```bash
 git clone https://github.com/khodemadi/Chak-mak.git
 cd Chak-mak
+```
 
-2. Install Python Dependencies
+### ۲. نصب وابستگی‌های Python
 
+```bash
 pip install flask
+```
 
-3. Start the Mock API
+### ۳. اجرای API آزمایشی
 
+```bash
 python mock-api/server.py
+```
 
-The mock API is expected to run on:
+آدرس API:
 
+```text
 http://127.0.0.1:8000
+```
 
-Keep this terminal running.
+### ۴. نصب ابزار Tauri
 
-4. Install Tauri CLI
-
+```bash
 cargo install tauri-cli --version "^2"
+```
 
-5. Generate Application Icons
+### ۵. تولید آیکون برنامه
 
-Navigate to the Tauri directory:
-
+```bash
 cd src-tauri
-
-Generate the application icons:
-
 cargo tauri icon path/to/any-square.png
+```
 
-Replace "path/to/any-square.png" with the path to your image.
+### ۶. اجرای برنامه
 
-6. Run the Desktop Application
-
+```bash
 cargo tauri dev
+```
 
-The desktop application should now launch.
+---
 
-Connecting to a Real API
+## اتصال به API واقعی
 
-The application can be configured to use a real API instead of the mock server.
-
+```bash
 THEFEED_API=http://host:port cargo tauri dev
+```
 
-Replace "http://host:port" with your actual API endpoint.
+آدرس API واقعی را جایگزین `http://host:port` کنید.
 
-Testing
+---
 
-Rust Tests
+## تست و اعتبارسنجی
 
+### اجرای تست‌های Rust
+
+```bash
 cd src-tauri
 cargo test
+```
 
-API Validation
+### اعتبارسنجی API
 
+```bash
 python mock-api/validate.py http://127.0.0.1:8000
+```
 
-This script checks the API against the expected contract.
+---
 
-API Contract
+## قرارداد API
 
-The API contract defines the expected JSON structure shared between the backend and desktop application.
+| فایل | توضیحات |
+|---|---|
+| `docs/api-contract.md` | مستندات قرارداد API |
+| `api-contract.md` | مرجع ساختار API |
 
-File| Description
-"docs/api-contract.md"| API documentation
-"api-contract.md"| API contract reference
+---
 
-The contract serves as a common reference for frontend and backend development.
+## توسعه پروژه
 
-Development
+- توسعه رابط کاربری با API آزمایشی
+- توسعه بخش Rust بر اساس قرارداد API
+- اعتبارسنجی مستقل پاسخ‌های API
+- جایگزینی API آزمایشی با API واقعی
+- توسعه ماژولار اجزای برنامه
 
-The project is structured to allow independent development of the desktop application and API.
+---
 
-- Frontend development can proceed using the mock API.
-- Backend development can follow the shared API contract.
-- API responses can be validated independently.
-- The real API can replace the mock implementation without changing the overall development workflow.
+## مشارکت در پروژه
 
-Contributing
+از گزارش مشکلات، پیشنهادها و مشارکت توسعه‌دهندگان استقبال می‌شود.
 
-Contributions, bug reports, and suggestions are welcome.
+۱. ساختار معماری پروژه را حفظ کنید.
 
-When contributing:
+۲. تغییرات API را مطابق قرارداد انجام دهید.
 
-1. Keep changes consistent with the existing architecture.
-2. Follow the API contract when modifying API-related functionality.
-3. Test changes before submitting a pull request.
-4. Clearly document any changes to the API structure.
+۳. پیش از ارسال تغییرات، تست‌ها را اجرا کنید.
 
-License
+۴. تغییرات ساختاری API را مستند کنید.
 
-The license has not yet been specified.
+۵. تغییرات را از طریق Pull Request ارسال کنید.
 
-Please check the repository for licensing information before redistributing or using the project commercially.
+---
+
+## مجوز استفاده
+
+مجوز رسمی پروژه هنوز مشخص نشده است.
+
+پیش از استفاده تجاری یا بازنشر، وضعیت مجوز پروژه را بررسی کنید. 
