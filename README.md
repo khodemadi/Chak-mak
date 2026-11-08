@@ -6,16 +6,16 @@ The project follows a modular architecture that separates the desktop applicatio
 
 Overview
 
-The Feed is designed to provide a foundation for a desktop feed reader with a clear separation between frontend and backend components.
+The Feed provides a foundation for a desktop feed reader with a clear separation between frontend and backend components.
 
-The project currently includes:
+Features
 
-- A desktop application powered by Rust and Tauri v2.
-- An HTML/CSS/JavaScript-based user interface.
-- A Python-based mock API for development and testing.
-- A shared JSON API contract.
-- API validation utilities.
-- A Rust-based API client using "reqwest".
+- Desktop application powered by Rust and Tauri v2
+- HTML/CSS/JavaScript-based user interface
+- Python-based mock API for development and testing
+- Shared JSON API contract
+- API validation utilities
+- Rust-based HTTP client using "reqwest"
 
 Architecture
 
@@ -42,17 +42,13 @@ Project Structure
 Chak-mak/
 ├── docs/
 │   └── api-contract.md
-│
 ├── mock-api/
 │   ├── server.py
 │   └── validate.py
-│
 ├── src-tauri/
 │   └── Rust / Tauri application
-│
 ├── ui/
 │   └── HTML / CSS / JavaScript interface
-│
 ├── api-contract.md
 └── README.md
 
@@ -73,22 +69,20 @@ Requirements
 
 Before running the project, make sure the following tools are installed:
 
-- Python 3
-- Rust
-- Cargo
-- Tauri v2 system dependencies
-- Git
+Requirement| Description
+Python 3| Mock API development and execution
+Rust| Backend development
+Cargo| Rust package manager
+Tauri v2 dependencies| Desktop application requirements
+Git| Version control
 
-For Tauri prerequisites, see the official documentation:
-
-https://v2.tauri.app/start/prerequisites/
+For Tauri prerequisites, see the "official documentation" (https://v2.tauri.app/start/prerequisites/).
 
 Getting Started
 
 1. Clone the Repository
 
 git clone https://github.com/khodemadi/Chak-mak.git
-
 cd Chak-mak
 
 2. Install Python Dependencies
@@ -96,8 +90,6 @@ cd Chak-mak
 pip install flask
 
 3. Start the Mock API
-
-Run the mock API server:
 
 python mock-api/server.py
 
@@ -108,8 +100,6 @@ http://127.0.0.1:8000
 Keep this terminal running.
 
 4. Install Tauri CLI
-
-Install Tauri CLI v2:
 
 cargo install tauri-cli --version "^2"
 
@@ -143,15 +133,10 @@ Testing
 
 Rust Tests
 
-Run the Rust tests:
-
 cd src-tauri
-
 cargo test
 
 API Validation
-
-Run the API validation script:
 
 python mock-api/validate.py http://127.0.0.1:8000
 
@@ -159,11 +144,11 @@ This script checks the API against the expected contract.
 
 API Contract
 
-The API contract defines the expected JSON structure shared between the backend and the desktop application.
+The API contract defines the expected JSON structure shared between the backend and desktop application.
 
-Reference:
-
-docs/api-contract.md
+File| Description
+"docs/api-contract.md"| API documentation
+"api-contract.md"| API contract reference
 
 The contract serves as a common reference for frontend and backend development.
 
