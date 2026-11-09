@@ -1,5 +1,10 @@
 # Chak-mak
 
+<p align="center">
+  <a href="README.md">English</a>
+  <a href="README.FA.md">فارسی</a>
+</p>
+
 A lightweight, extensible desktop application built with **Rust, Tauri v2, and HTML/CSS/JavaScript**, designed to fetch and display feed data through a structured API.
 
 ---
