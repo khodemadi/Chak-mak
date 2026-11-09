@@ -1,26 +1,26 @@
-# چک‌مک (Chak-mak)
+# Chak-mak
 
-یک نرم‌افزار دسکتاپ سبک و توسعه‌پذیر با استفاده از **Rust، Tauri v2 و HTML/CSS/JavaScript** که با هدف دریافت و نمایش داده‌های فید از طریق یک API ساختاریافته توسعه داده شده است.
-
----
-
-## معرفی پروژه
-
-چک‌مک بستری برای توسعه یک برنامه دسکتاپ با معماری ماژولار است که در آن رابط کاربری، منطق برنامه و ارتباطات API از یکدیگر تفکیک شده‌اند.
-
-### قابلیت‌ها
-
-- توسعه برنامه دسکتاپ با استفاده از Rust و Tauri v2
-- رابط کاربری مبتنی بر HTML، CSS و JavaScript
-- API آزمایشی مبتنی بر Python برای توسعه و تست
-- قرارداد مشترک API بر پایه JSON
-- ابزارهای اعتبارسنجی API
-- ارتباط HTTP با استفاده از کتابخانه Reqwest
-- قابلیت توسعه و اتصال به API واقعی
+A lightweight, extensible desktop application built with **Rust, Tauri v2, and HTML/CSS/JavaScript**, designed to fetch and display feed data through a structured API.
 
 ---
 
-## معماری پروژه
+## About the Project
+
+Chak-mak is a foundation for building a desktop application with a modular architecture, where the user interface, application logic, and API communication are kept separate.
+
+### Features
+
+- Desktop app development with Rust and Tauri v2
+- UI based on HTML, CSS, and JavaScript
+- Python-based mock API for development and testing
+- Shared JSON-based API contract
+- API validation tools
+- HTTP communication via the Reqwest library
+- Extensible, with support for connecting to a real API
+
+---
+
+## Architecture
 
 ```text
                 ┌─────────────────────┐
@@ -44,7 +44,7 @@
 
 ---
 
-## ساختار پروژه
+## Project Structure
 
 ```text
 Chak-mak/
@@ -61,77 +61,77 @@ Chak-mak/
 
 ---
 
-## فناوری‌های استفاده‌شده
+## Technologies Used
 
-| فناوری | کاربرد |
+| Technology | Purpose |
 |---|---|
-| Rust | توسعه منطق برنامه |
-| Tauri v2 | ساخت برنامه دسکتاپ |
-| HTML | ساختار رابط کاربری |
-| CSS | طراحی رابط کاربری |
-| JavaScript | تعاملات سمت کاربر |
-| Python | توسعه API آزمایشی |
-| Flask | پیاده‌سازی API |
-| Reqwest | ارتباطات HTTP |
-| JSON | قالب تبادل داده |
+| Rust | Application logic |
+| Tauri v2 | Building the desktop app |
+| HTML | UI structure |
+| CSS | UI styling |
+| JavaScript | Client-side interactions |
+| Python | Mock API development |
+| Flask | API implementation |
+| Reqwest | HTTP communication |
+| JSON | Data exchange format |
 
 ---
 
-## پیش‌نیازها
+## Prerequisites
 
-| ابزار | توضیحات |
+| Tool | Description |
 |---|---|
-| Python 3 | اجرای API آزمایشی |
-| Rust | توسعه بخش اصلی برنامه |
-| Cargo | مدیریت وابستگی‌های Rust |
-| Tauri v2 Dependencies | وابستگی‌های موردنیاز |
-| Git | مدیریت نسخه |
+| Python 3 | Running the mock API |
+| Rust | Core application development |
+| Cargo | Rust dependency management |
+| Tauri v2 Dependencies | Required dependencies |
+| Git | Version control |
 
-[مستندات رسمی Tauri](https://v2.tauri.app/start/prerequisites/)
+[Official Tauri documentation](https://v2.tauri.app/start/prerequisites/)
 
 ---
 
-## نصب و راه‌اندازی
+## Installation and Setup
 
-### ۱. دریافت پروژه
+### 1. Get the project
 
 ```bash
 git clone https://github.com/khodemadi/Chak-mak.git
 cd Chak-mak
 ```
 
-### ۲. نصب وابستگی‌های Python
+### 2. Install Python dependencies
 
 ```bash
 pip install flask
 ```
 
-### ۳. اجرای API آزمایشی
+### 3. Run the mock API
 
 ```bash
 python mock-api/server.py
 ```
 
-آدرس API:
+API address:
 
 ```text
 http://127.0.0.1:8000
 ```
 
-### ۴. نصب ابزار Tauri
+### 4. Install the Tauri CLI
 
 ```bash
 cargo install tauri-cli --version "^2"
 ```
 
-### ۵. تولید آیکون برنامه
+### 5. Generate the app icon
 
 ```bash
 cd src-tauri
 cargo tauri icon path/to/any-square.png
 ```
 
-### ۶. اجرای برنامه
+### 6. Run the app
 
 ```bash
 cargo tauri dev
@@ -139,26 +139,26 @@ cargo tauri dev
 
 ---
 
-## اتصال به API واقعی
+## Connecting to a Real API
 
 ```bash
 THEFEED_API=http://host:port cargo tauri dev
 ```
 
-آدرس API واقعی را جایگزین `http://host:port` کنید.
+Replace `http://host:port` with the address of the real API.
 
 ---
 
-## تست و اعتبارسنجی
+## Testing and Validation
 
-### اجرای تست‌های Rust
+### Run Rust tests
 
 ```bash
 cd src-tauri
 cargo test
 ```
 
-### اعتبارسنجی API
+### Validate the API
 
 ```bash
 python mock-api/validate.py http://127.0.0.1:8000
@@ -166,43 +166,39 @@ python mock-api/validate.py http://127.0.0.1:8000
 
 ---
 
-## قرارداد API
+## API Contract
 
-| فایل | توضیحات |
+| File | Description |
 |---|---|
-| `docs/api-contract.md` | مستندات قرارداد API |
-| `api-contract.md` | مرجع ساختار API |
+| `docs/api-contract.md` | API contract documentation |
+| `api-contract.md` | API structure reference |
 
 ---
 
-## توسعه پروژه
+## Development
 
-- توسعه رابط کاربری با API آزمایشی
-- توسعه بخش Rust بر اساس قرارداد API
-- اعتبارسنجی مستقل پاسخ‌های API
-- جایگزینی API آزمایشی با API واقعی
-- توسعه ماژولار اجزای برنامه
-
----
-
-## مشارکت در پروژه
-
-از گزارش مشکلات، پیشنهادها و مشارکت توسعه‌دهندگان استقبال می‌شود.
-
-۱. ساختار معماری پروژه را حفظ کنید.
-
-۲. تغییرات API را مطابق قرارداد انجام دهید.
-
-۳. پیش از ارسال تغییرات، تست‌ها را اجرا کنید.
-
-۴. تغییرات ساختاری API را مستند کنید.
-
-۵. تغییرات را از طریق Pull Request ارسال کنید.
+- Develop the UI against the mock API
+- Develop the Rust side based on the API contract
+- Independently validate API responses
+- Replace the mock API with the real API
+- Develop application components modularly
 
 ---
 
-## مجوز استفاده
+## Contributing
 
-مجوز رسمی پروژه هنوز مشخص نشده است.
+Bug reports, suggestions, and developer contributions are welcome.
 
-پیش از استفاده تجاری یا بازنشر، وضعیت مجوز پروژه را بررسی کنید. 
+1. Preserve the project's architectural structure.
+2. Make API changes in accordance with the contract.
+3. Run the tests before submitting changes.
+4. Document any structural API changes.
+5. Submit changes via Pull Request.
+
+---
+
+## License
+
+The project's official license has not yet been determined.
+
+Check the project's license status before commercial use or redistribution.
